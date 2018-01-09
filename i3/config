@@ -154,7 +154,7 @@ bar {
 for_window [class="^.*"] border pixel 1
 
 # Power Management
-set $Locker i3lock -f && sleep 1
+set $Locker i3lock -f --color=#63E2FF && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
