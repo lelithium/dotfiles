@@ -1,5 +1,5 @@
 # i3 lithium config
-font pango:monospace 16
+font pango:Inconsolata for Powerline 13
 
 # Define arrow keys
 set $up l
@@ -151,7 +151,7 @@ bar {
 }
 
 # Remove borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # Power Management
 set $Locker i3lock -f --color=#63E2FF && sleep 1
@@ -178,3 +178,13 @@ bindsym Ctrl+Mod1+L exec --no-startup-id $Locker
 # Compton startup
 exec --no-startup-id compton --config ~/.config/compton/config -b
 
+# Brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo backlight.sh plus # ugly hack on GS63
+bindsym XF86MonBrightnessDown exec sudo backlight.sh moins # ugly hack on GS63
+
+# Audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 10%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 10%-
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
