@@ -11,7 +11,7 @@ set $right semicolon
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec alacritty
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -151,10 +151,10 @@ bar {
 }
 
 # Remove borders
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 # Power Management
-set $Locker i3lock -f --color=#63E2FF && sleep 1
+set $Locker blurlock
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -188,3 +188,6 @@ bindsym XF86MonBrightnessDown exec sudo backlight.sh moins # ugly hack on GS63
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 10%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 10%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+
+exec redshift
+exec --no-startup-id nitrogen --restore
